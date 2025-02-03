@@ -13,12 +13,11 @@ class DaftarPelangganFactory extends Factory
     public function definition()
     {
         return [
-            'id_pelanggan' => $this->faker->unique()->numberBetween(200000, 300000),
             'no_meter' => $this->faker->unique()->numerify('#######'),
             'nama_pelanggan' => $this->faker->name,
             'alamat' => $this->faker->address,
             'tgl_bayar' => $this->faker->date('Y-m-d'),
-            'id_tarif' => $this->faker->word,
+            'id_tarif' => $this->faker->randomElement(['rumah', 'kantor', 'industri']),
         ];
     }
 }

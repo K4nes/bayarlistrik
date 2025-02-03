@@ -8,14 +8,23 @@ use App\Models\DaftarPelanggan;
 class PelangganController extends Controller
 {
     // Menampilkan daftar pelanggan
-    public function index()
-    {
-        $daftarpelanggan = DaftarPelanggan::all(); // Mengambil data pelanggan
-        return view('daftarpelanggan', [
-            'title' => 'Daftar Pelanggan',
-            'daftarpelanggan' => $daftarpelanggan,
-        ]);
+    public function index(Request $request)
+{
+    $query = DaftarPelanggan::query();
+
+    // Jika ada pencarian berdasarkan ID Pelanggan
+    if ($request->has('search')) {
+        $query->where('id_pelanggan', 'like', '%' . $request->search . '%');
     }
+
+    $daftarpelanggan = $query->paginate(10);
+
+    return view('daftarpelanggan', [
+        'title' => 'Daftar Pelanggan',
+        'daftarpelanggan' => $daftarpelanggan,
+    ]);
+}
+
 
     // Menampilkan form input pelanggan
     public function create()

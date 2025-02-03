@@ -11,6 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get('/daftarpelanggan', [PelangganController::class, 'index']);
+Route::get('/daftarpelanggan', [PelangganController::class, 'index'])->name('pelanggan.index');
 Route::get('/daftarpelanggan/create', [PelangganController::class, 'create']);
 Route::post('/daftarpelanggan', [PelangganController::class, 'store']);
 Route::get('/daftarpelanggan/{id}/edit', [PelangganController::class, 'edit'])->name('pelanggan.edit');
