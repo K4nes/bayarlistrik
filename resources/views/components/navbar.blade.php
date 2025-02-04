@@ -103,7 +103,7 @@
                                 </svg>
                             </div>
                             <div class="flex-auto">
-                                <a href="pagetarif" class="block font-semibold text-gray-900">
+                                <a href="/halamantarif" class="block font-semibold text-gray-900">
                                     Data Penggunaan
                                     <span class="absolute inset-0"></span>
                                 </a>

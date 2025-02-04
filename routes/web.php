@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\daftarpelanggan;
+use App\Http\Controllers\TarifController;
 use App\Http\Controllers\PelangganController;
 
 Route::get('/', function () {
@@ -20,12 +20,11 @@ Route::delete('/daftarpelanggan/{id}', [PelangganController::class, 'destroy'])-
 
 
 
-
-Route::get('/pagetarif', function () {
-    return view('pagetarif', [
-        'title' => 'Halaman Tarif',
-    ]);
-});
+Route::get('/halamantarif', [TarifController::class, 'index'])->name('halamantarif.index');
+Route::post('/halamantarif', [TarifController::class, 'store'])->name('halamantarif.store');
+Route::delete('/halamantarif/{id}', [TarifController::class, 'destroy'])->name('halamantarif.destroy');
+Route::get('/halamantarif/{id}/edit', [TarifController::class, 'edit'])->name('halamantarif.edit');
+Route::put('/halamantarif/{id}', [TarifController::class, 'update'])->name('halamantarif.update');
 
 
 
